@@ -43,3 +43,52 @@ void input_splitter(char* user_input, char** command_given, char** args) {
     //NULL terminator placed at the end of the args array
     args[i] = NULL;
 }
+
+//Changing directory function
+void change_directory(char** args){
+    char cwd[1028];
+    if (args[1] != NULL)
+            {
+                if (chdir(args[1]) == -1){
+                    printf("No such directory\n");
+                }
+                else {
+                    getcwd(cwd, sizeof(cwd));
+                    setenv("PWD", cwd, 1);
+                }   
+            } 
+            else 
+            {
+                printf("%s\n", getenv("PWD"));        
+            }
+}
+
+//Function that exits the shell
+void exit_command(){
+    printf("Exiting The Shell\n");
+    exit(0);
+}
+
+//Function that prints current working directory
+void pwd_command(){
+    printf("%s\n", getenv("PWD")); 
+}
+
+//Function that lists the contents of the current directory
+void dir_command(){
+    system("ls -al");
+}
+
+//Function that clears the screen
+void clr_command(){
+    system("clear");
+}
+
+void echo_command(char** args){
+    int i = 1;
+    while (args[i] != NULL){
+        printf("%s ", args[i]);
+        i++;
+    }
+    printf("\n");
+}
