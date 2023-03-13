@@ -16,3 +16,12 @@ You should follow the instructions below:
 
 ## Other notes
 There are supporting exercises to help you with the project.  You will find them all under  [Lab04/05 on the Loop CA216 Site](https://loop.dcu.ie/mod/book/view.php?id=2054177).  Use Git regularly and commit versions of your code often.
+
+
+Student Name: Razvan Gorea
+Student ID: 21306373
+
+I declare that this material, which I now submit for assessment, 
+is entirely my own work and has not been taken from the work of others save,
+and to the extent that such work has been cited 
+and acknowledged within the text of my work.
