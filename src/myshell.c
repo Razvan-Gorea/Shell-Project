@@ -19,14 +19,14 @@ int main (){
     char user_input[command_len];
     char* command_given;
     char* args[args_len];
+    char cwd[1028];
 
      while (true) {
-        printf("Custom Shell Active ~%s $ ", getenv("PWD"));
+        printf("Shell Active ~%s $ ", getenv("PWD"));
         fgets(user_input, command_len, stdin);
         user_input[strcspn(user_input, "\n")] = '\0';
 
         // splits input into tokens
-
         input_splitter(user_input, &command_given, args);
 
         if (command_given == NULL) {
@@ -38,10 +38,14 @@ int main (){
         {
             if (args[1] != NULL)
             {
-                chdir(args[1]);
-                setenv("PWD", args[1], 1);
+                if (chdir(args[1]) == -1){
+                    printf("No such directory\n");
+                }
+                else {
+                    getcwd(cwd, sizeof(cwd));
+                    setenv("PWD", cwd, 1);
+                }   
             } 
-            
             else 
             {
                 printf("%s\n", getenv("PWD"));        
@@ -64,6 +68,7 @@ int main (){
         else 
         {
             // execute command using system()
+            //run it on your system
             system(user_input);
         }
     }
