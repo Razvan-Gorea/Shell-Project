@@ -16,17 +16,56 @@ and acknowledged within the text of my work.*/
 #include "myshell.h"
 #include "utility.h"
 
-#define command_len 1028 //define the maximum length of a command
+int main (){
+    char user_input[command_len];
+    char* command_given;
+    char* args[args_len];
 
-int main () {
-    char command[command_len]; //the command that will be executed
+     while (true) {
+        printf("Custom Shell Active ~%s $ ", getenv("PWD"));
+        fgets(user_input, command_len, stdin);
+        user_input[strcspn(user_input, "\n")] = '\0';
 
-    //Enters an infinite loop
-    while(true){
-        printf("myshell> "); //prints the prompt
+        // splits input into tokens
+
+        input_splitter(user_input, &command_given, args);
+
+        if (command_given == NULL) {
+            continue;
+        }
+
+        //cd command
+        if (strcmp(command_given, "cd") == 0) 
+        {
+            if (args[1] != NULL)
+            {
+                chdir(args[1]);
+                setenv("PWD", args[1], 1);
+            } 
+            
+            else 
+            {
+                printf("%s\n", getenv("PWD"));        
+            }
+        
+        } 
+        //exit command
+        else if (strcmp(command_given, "exit") == 0) 
+        {
+            printf("Exiting The Shell\n");
+            exit(0);
+        
+        }
+        //pwd command
+        else if (strcmp(command_given, "pwd") == 0) 
+        {
+            printf("%s\n", getenv("PWD")); 
+        
+        } 
+        else 
+        {
+            // execute command using system()
+            system(user_input);
+        }
     }
-    
-    
-    
-    return 0;
 }

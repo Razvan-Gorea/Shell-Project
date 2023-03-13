@@ -15,3 +15,32 @@ and acknowledged within the text of my work.*/
 #include <stdbool.h>
 #include "myshell.h"
 #include "utility.h"
+
+//function that splits user input into tokens
+void input_splitter(char* user_input, char** command_given, char** args) {
+    char* tokens;
+    int i = 0;
+
+    //check whether length is zero and set command given to NULL
+    if (strlen(user_input) == 0) 
+    {
+        *command_given = NULL;
+        return;
+    }
+
+    // split input into tokens based on whitespace
+    tokens = strtok(user_input, " \n");
+    
+    //first token passed is the command
+    *command_given = tokens;
+
+    //tokens left over become the rest of the arguments
+    while (tokens != NULL && i < args_len) {
+        args[i] = tokens;
+        i++;
+        tokens = strtok(NULL, " \n");
+    }
+
+    //NULL terminator placed at the end of the args array
+    args[i] = NULL;
+}

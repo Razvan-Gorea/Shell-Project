@@ -1,8 +1,16 @@
 # Razvan Gorea, 21306373 - Operating Systems Project 1
 # ca216/myshell
 
-myshell: myshell.c utility.c myshell.h
-	gcc -Wall myshell.c utility.c -o myshell
+files = src/myshell.c src/utility.c
+objects = $(patsubst src/%.c,%.o,$(files))
+
+myshell:
+	gcc -c $(files)
+	gcc -o bin/$@ $(objects)
+	mv $(objects) bin/
+
+.PHONY: myshell
+
 
 #Studnet Name: Razvan Gorea
 #Student ID: 21306373
