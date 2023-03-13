@@ -13,7 +13,6 @@ and acknowledged within the text of my work.*/
 #include <string.h>
 #include <unistd.h>
 #include <stdbool.h>
-#include "myshell.h"
 #include "utility.h"
 
 int main (){

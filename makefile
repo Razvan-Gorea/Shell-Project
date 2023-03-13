@@ -10,7 +10,13 @@ myshell:
 	gcc -o bin/$@ $(objects)
 	mv $(objects) bin/
 
+clean:
+	rm bin/*.o
+	rm bin/myshell
+
 .PHONY: myshell
+
+
 
 
 #Studnet Name: Razvan Gorea
