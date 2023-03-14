@@ -74,14 +74,11 @@ int main (int argc, char** argv){
         {
             pause_command();
         }
-        
-        else 
+
+        //environ command to list all the environment strings
+        else if (strcmp(command_given, "environ") == 0) 
         {
-            //execute command using system()
-            //run it on your system
-            //caution: it might night work on all systems, and it might be dangerous
-            //use this shell at your own risk
-            system(user_input);
+            environ_command();
         }
     }
 }

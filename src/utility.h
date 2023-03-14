@@ -10,6 +10,8 @@ and acknowledged within the text of my work.*/
 #define args_len 15
 #define command_len 1028
 
+//Function prototypes
+
 void input_splitter(char* user_input, char** command_given, char** args);
 void change_directory(char** args);
 void exit_command();
@@ -18,3 +20,4 @@ void dir_command();
 void clr_command();
 void echo_command(char** args);
 void pause_command();
+void environ_command();

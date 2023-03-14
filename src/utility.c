@@ -101,3 +101,8 @@ void pause_command(){
         }
     }
 }
+
+//Function that lists all the environment strings
+void environ_command(){
+    system("env");
+}
