@@ -14,6 +14,7 @@ and acknowledged within the text of my work.*/
 #include <unistd.h>
 #include <stdbool.h>
 #include "utility.h"
+#include <sys/wait.h>
 
 //This file has all the commands that are implemented for the shell
 
@@ -52,7 +53,7 @@ void change_directory(char** args){
     if (args[1] != NULL)
             {
                 if (chdir(args[1]) == -1){ //checks if chdir is successful
-                    printf("No such directory\n");
+                    printf("No such file or directory\n");
                 }
                 else {
                     getcwd(cwd, sizeof(cwd)); //get current working directory
@@ -108,4 +109,20 @@ void pause_command(){
 //Function that lists all the environment strings
 void environ_command(){
     system("env");
+}
+
+//Function that executes the command given by the user
+void exec_command(char** args){
+    pid_t pid = fork(); //child process made
+    if (pid == 0){ //if it's a child process
+        execvp(args[0], args); //execute the command
+        printf("Execution error occurred\n");
+        exit(0);
+    }
+    else if (pid > 0){ //parent process
+        wait(NULL); //wait for child process to finish
+    }
+    else {
+        printf("Fork failed\n");
+    }
 }

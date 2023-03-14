@@ -82,5 +82,10 @@ void shell(int argc, char** argv){
         {
             environ_command();
         }
+
+        else {
+            //forks a child process and execs
+            exec_command(args);
+        }
     }
 }
