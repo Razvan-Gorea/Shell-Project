@@ -68,6 +68,12 @@ int main (int argc, char** argv){
         {
             echo_command(args);
         }
+
+        //pause command to pause the shell
+        else if (strcmp(command_given, "pause") == 0) 
+        {
+            pause_command();
+        }
         
         else 
         {

@@ -92,3 +92,12 @@ void echo_command(char** args){
     }
     printf("\n");
 }
+
+//Function that pauses the shell
+void pause_command(){
+    while (true){
+        if (getchar() == '\n'){
+            break;
+        }
+    }
+}

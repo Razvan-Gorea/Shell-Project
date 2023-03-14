@@ -17,3 +17,4 @@ void pwd_command();
 void dir_command();
 void clr_command();
 void echo_command(char** args);
+void pause_command();
