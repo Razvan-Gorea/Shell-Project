@@ -10,7 +10,7 @@ and acknowledged within the text of my work.*/
 #define args_len 15
 #define command_len 1028
 
-//Function prototypes
+//Function prototypes for shell commands
 
 void input_splitter(char* user_input, char** command_given, char** args);
 void change_directory(char** args);

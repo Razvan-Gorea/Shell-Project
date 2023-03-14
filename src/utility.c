@@ -15,6 +15,8 @@ and acknowledged within the text of my work.*/
 #include <stdbool.h>
 #include "utility.h"
 
+//This file has all the commands that are implemented for the shell
+
 //function that splits user input into tokens
 void input_splitter(char* user_input, char** command_given, char** args) {
     char* tokens;
@@ -49,12 +51,12 @@ void change_directory(char** args){
     char cwd[1028];
     if (args[1] != NULL)
             {
-                if (chdir(args[1]) == -1){
+                if (chdir(args[1]) == -1){ //checks if chdir is successful
                     printf("No such directory\n");
                 }
                 else {
-                    getcwd(cwd, sizeof(cwd));
-                    setenv("PWD", cwd, 1);
+                    getcwd(cwd, sizeof(cwd)); //get current working directory
+                    setenv("PWD", cwd, 1); //set environment variable to current working directory
                 }   
             } 
             else 
@@ -84,9 +86,10 @@ void clr_command(){
     system("clear");
 }
 
-void echo_command(char** args){
+//Function that echos the arguments
+void echo_command(char** args){ //Feed in the arguments from user input
     int i = 1;
-    while (args[i] != NULL){
+    while (args[i] != NULL){ //Loop through the arguments and print them out
         printf("%s ", args[i]);
         i++;
     }
