@@ -68,7 +68,9 @@ void change_directory(char** args){
 
 //Function that exits the shell
 void exit_command(){
-    printf("Exiting The Shell\n");
+    printf("-------------------------------\n");
+    printf("| Exiting The Shell, Goodbye! |\n");
+    printf("-------------------------------\n");
     exit(0);
 }
 

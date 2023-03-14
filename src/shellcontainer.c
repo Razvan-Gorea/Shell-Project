@@ -22,6 +22,15 @@ void shell(int argc, char** argv){
     char* command_given; //command given by user
     char* args[args_len]; //array of arguments
 
+    printf("----------------------\n");
+    printf("| Entering The Shell |\n");
+    printf("----------------------\n");
+
+    printf("---------------------\n");
+    printf("|   Welcome User!   |\n");
+    printf("---------------------\n");
+
+
      while (true) {
         printf("Shell Active ~%s $ ", getenv("PWD")); //prints current working directory
         
