@@ -17,7 +17,7 @@ and acknowledged within the text of my work.*/
 
 //Main Function for the shell
 
-void shell(int argc, char** argv){
+void shell(int argc, char** argv, FILE *fp){
     char user_input[command_len]; //buffer for user input
     char* command_given; //command given by user
     char* args[args_len]; //array of arguments
@@ -32,12 +32,18 @@ void shell(int argc, char** argv){
 
 
      while (true) {
-        printf("Shell Active ~%s $ ", getenv("PWD")); //prints current working directory
         
-        fgets(user_input, command_len, stdin);
+        set_shell_env(); //sets the shell environment
+        
+        printf("Shell Active ~%s $ ", getenv("PWD")); //prints current working directory
+
+        if (fgets(user_input, command_len, fp) == NULL){
+            printf("\n");
+            break;
+        }
         user_input[strcspn(user_input, "\n")] = '\0';
 
-        // splits user input into tokens
+        //*splits user input into tokens
         input_splitter(user_input, &command_given, args);
 
         if (command_given == NULL) {

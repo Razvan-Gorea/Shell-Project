@@ -1,7 +1,7 @@
 # Razvan Gorea, 21306373 - Operating Systems Project 1
 # ca216/myshell
 
-files = src/myshell.c src/utility.c
+files = src/myshell.c src/utility.c src/shellcontainer.c
 objects = $(patsubst src/%.c,%.o,$(files))
 
 myshell:

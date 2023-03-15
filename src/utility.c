@@ -15,6 +15,7 @@ and acknowledged within the text of my work.*/
 #include <stdbool.h>
 #include "utility.h"
 #include <sys/wait.h>
+#include "shellcontainer.h"
 
 //This file has all the commands that are implemented for the shell
 
@@ -69,8 +70,8 @@ void change_directory(char** args){
 //Function that exits the shell
 void exit_command(){
     printf("-------------------------------\n");
-    printf("| Exiting The Shell, Goodbye! |\n");
-    printf("-------------------------------\n");
+    printf("| Exiting the Shell, Goodbye! |\n");
+    printf("-------------------------------\n");    
     exit(0);
 }
 
@@ -128,3 +129,11 @@ void exec_command(char** args){
         printf("Fork failed\n");
     }
 }
+
+//Function that sets the shell environment
+void set_shell_env(){
+    char buf[100];
+    readlink("/proc/self/exe", buf, sizeof(buf));
+    setenv("SHELL", buf, 1); //set environment variable to current working directory
+}
+

@@ -15,10 +15,16 @@ and acknowledged within the text of my work.*/
 #include <stdbool.h>
 #include "utility.h"
 #include "shellcontainer.h"
-#include "shellcontainer.c"
 
 //This is the main file for the entire shell
 
 int main (int argc, char** argv){
-    shell(argc, argv);
+    if (argc == 1)
+    {
+    shell(argc, argv, stdin);
+    }
+    else {
+        FILE* fp = fopen(argv[1], "r");
+        shell(argc, argv, fp);
+    }
 }

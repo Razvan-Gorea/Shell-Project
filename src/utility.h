@@ -22,3 +22,4 @@ void echo_command(char** args);
 void pause_command();
 void environ_command();
 void exec_command(char** args);
+void set_shell_env();

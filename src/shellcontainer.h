@@ -9,4 +9,5 @@ and acknowledged within the text of my work.*/
 
 //Function prototype
 
-void shell(int argc, char** argv);
+
+void shell(int argc, char** argv, FILE* fp);
