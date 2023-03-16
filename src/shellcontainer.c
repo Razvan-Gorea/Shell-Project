@@ -43,6 +43,20 @@ void shell(int argc, char** argv, FILE *fp, bool batch){
             continue;
         }
 
+        //counter for arguments
+        int len = 0;
+        for (int i = 0; args[i]; i++) {
+            len++;
+        }
+
+        //checks if last argument is '&' and runs the command/process in background
+        if (strcmp(args[len-1], "&") == 0) {
+            args[len-1] = NULL;
+            //function call that starts running the process 
+            //in the background
+            background_process(args); 
+        }
+
         //cd command to change directory
         if (strcmp(command_given, "cd") == 0) 
         {

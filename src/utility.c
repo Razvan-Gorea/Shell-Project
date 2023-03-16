@@ -16,6 +16,7 @@ and acknowledged within the text of my work.*/
 #include "utility.h"
 #include <sys/wait.h>
 #include "shellcontainer.h"
+#include <sys/wait.h>
 
 //This file has all the commands that are implemented for the shell
 
@@ -135,3 +136,20 @@ void set_shell_env(){
     setenv("shell", buf, 1); //set environment variable to current working directory
 }
 
+//Function that enables background processing and execution
+void background_process(char** args){
+    pid_t pid = fork(); //child process made
+    if (pid == 0){ //if it's a child process
+        setenv("parent", getenv("shell"), 1);//sets the parent environment variable
+        execvp(args[0], args); //execute the command
+        printf("Execution error occurred or command doesn't exist\n");
+        exit(0);
+    }
+    else if (pid > 0){ //parent process
+        printf("Background Process Started\n");
+        printf("Unique Process ID: %d\n", pid);
+    }
+    else {
+        printf("Fork failed\n");
+    }
+}
