@@ -19,12 +19,14 @@ and acknowledged within the text of my work.*/
 //This is the main file for the entire shell
 
 int main (int argc, char** argv){
-    if (argc == 1)
+    if (argc == 1) //If no file is given as an argument after the shell invoke
     {
-    shell(argc, argv, stdin);
+    bool batch = false; //batch mode is not active 
+    shell(argc, argv, stdin, batch);
     }
     else {
+        bool batch = true; //batch mode is active
         FILE* fp = fopen(argv[1], "r");
-        shell(argc, argv, fp);
+        shell(argc, argv, fp, batch);
     }
 }

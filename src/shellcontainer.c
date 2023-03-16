@@ -17,25 +17,18 @@ and acknowledged within the text of my work.*/
 
 //Main Function for the shell
 
-void shell(int argc, char** argv, FILE *fp){
+void shell(int argc, char** argv, FILE *fp, bool batch){
     char user_input[command_len]; //buffer for user input
     char* command_given; //command given by user
     char* args[args_len]; //array of arguments
-
-    printf("----------------------\n");
-    printf("| Entering The Shell |\n");
-    printf("----------------------\n");
-
-    printf("---------------------\n");
-    printf("|   Welcome User!   |\n");
-    printf("---------------------\n");
-
 
      while (true) {
         
         set_shell_env(); //sets the shell environment
         
-        printf("Shell Active ~%s $ ", getenv("PWD")); //prints current working directory
+        if (batch == false){//if batch mode is not active
+        printf("Shell Active ~%s $ ", getenv("PWD")); //prints current working directory aka commandline
+        }
 
         if (fgets(user_input, command_len, fp) == NULL){
             printf("\n");

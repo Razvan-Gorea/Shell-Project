@@ -9,5 +9,4 @@ and acknowledged within the text of my work.*/
 
 //Function prototype
 
-
-void shell(int argc, char** argv, FILE* fp);
+void shell(int argc, char** argv, FILE* fp, bool batch);
