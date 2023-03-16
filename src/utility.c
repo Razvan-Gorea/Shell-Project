@@ -68,7 +68,7 @@ void change_directory(char** args){
 }
 
 //Function that exits the shell
-void exit_command(){
+void quit_command(){
     exit(0);
 }
 
@@ -115,8 +115,9 @@ void environ_command(){
 void exec_command(char** args){
     pid_t pid = fork(); //child process made
     if (pid == 0){ //if it's a child process
+        setenv("parent", getenv("shell"), 1);//sets the parent environment variable
         execvp(args[0], args); //execute the command
-        printf("Execution error occurred\n");
+        printf("Execution error occurred or command doesn't exist\n");
         exit(0);
     }
     else if (pid > 0){ //parent process
@@ -131,6 +132,6 @@ void exec_command(char** args){
 void set_shell_env(){
     char buf[100];
     readlink("/proc/self/exe", buf, sizeof(buf));
-    setenv("SHELL", buf, 1); //set environment variable to current working directory
+    setenv("shell", buf, 1); //set environment variable to current working directory
 }
 

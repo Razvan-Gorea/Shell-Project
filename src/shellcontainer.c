@@ -49,10 +49,10 @@ void shell(int argc, char** argv, FILE *fp, bool batch){
             change_directory(args);
         } 
         
-        //exit command to exit shell
-        else if (strcmp(command_given, "exit") == 0) 
+        //quit command to exit shell
+        else if (strcmp(command_given, "quit") == 0) 
         {
-            exit_command();
+            quit_command();
         }
         
         //pwd command to print current working directory

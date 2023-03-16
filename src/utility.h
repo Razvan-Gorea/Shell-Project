@@ -14,7 +14,7 @@ and acknowledged within the text of my work.*/
 
 void input_splitter(char* user_input, char** command_given, char** args);
 void change_directory(char** args);
-void exit_command();
+void quit_command();
 void pwd_command();
 void dir_command();
 void clr_command();
