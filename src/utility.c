@@ -113,7 +113,8 @@ void environ_command(){
 }
 
 //Function that executes the command given by the user
-void exec_command(char** args){
+void exec_command(char** args)
+{
     pid_t pid = fork(); //child process made
     if (pid == 0){ //if it's a child process
         setenv("parent", getenv("shell"), 1);//sets the parent environment variable
@@ -130,26 +131,52 @@ void exec_command(char** args){
 }
 
 //Function that sets the shell environment
-void set_shell_env(){
+void set_shell_env()
+{
     char buf[100];
     readlink("/proc/self/exe", buf, sizeof(buf));
     setenv("shell", buf, 1); //set environment variable to current working directory
 }
 
 //Function that enables background processing and execution
-void background_process(char** args){
+void background_process(char** args)
+{
     pid_t pid = fork(); //child process made
-    if (pid == 0){ //if it's a child process
+    if (pid == 0)
+    { //if it's a child process
         setenv("parent", getenv("shell"), 1);//sets the parent environment variable
         execvp(args[0], args); //execute the command
         printf("Execution error occurred or command doesn't exist\n");
         exit(0);
     }
-    else if (pid > 0){ //parent process
+    else if (pid > 0)
+    { //parent process
         printf("Background Process Started\n");
         printf("Unique Process ID: %d\n", pid);
     }
-    else {
+    else 
+    {
         printf("Fork failed\n");
     }
+}
+
+//Function that prints the user manual (readme.md from the manual directory) to the commandline
+void help_command()
+{
+    char line[500];
+    FILE *man; //file pointer to the readme.md file
+
+    man = fopen("/home/razvan/2023-ca216-myshell/manual/readme.md", "r"); //pointer opens file
+    
+    if (man == NULL)//checks if the pointer is NULL
+    {
+        printf("File couldn't be opened.\n");
+    }
+
+    while (fgets(line, 500, man) != NULL)//reads the file line by line
+    {
+        printf("%s", line);//prints the lines of the file one by one
+    }
+
+    fclose(man);//closes the file
 }

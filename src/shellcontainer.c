@@ -105,6 +105,12 @@ void shell(int argc, char** argv, FILE *fp, bool batch){
             environ_command();
         }
 
+        //help command to access the user manual
+        else if (strcmp(command_given, "help") == 0) 
+        {
+            help_command();
+        }
+
         else {
             //forks a child process and execs
             exec_command(args);
