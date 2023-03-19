@@ -11,7 +11,7 @@ myshell:
 	mv $(objects) bin/
 	
 
-clean:
+clean: #cleans the bin folder
 	rm bin/*.o
 	rm bin/myshell
 
@@ -26,4 +26,4 @@ clean:
 #I declare that this material, which I now submit for assessment, 
 #is entirely my own work and has not been taken from the work of others save,
 #and to the extent that such work has been cited 
-#and acknowledged within the text of my work.
+#and acknowledged within the text of my work. Citations for the code is in the readme.md file.
