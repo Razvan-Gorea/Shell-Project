@@ -141,7 +141,7 @@ Command to clean the bin directory:
 
 `make clean`
 
-**Disclaimer: The make file is only compatible with Linux/Unix based operating systems like Ubuntu.**
+**Additional Disclaimer: The make file is only compatible with Linux/Unix based operating systems like Ubuntu.**
 
 ---
 
