@@ -131,6 +131,8 @@ Example:
 
 The make file creates this shell from the files that source files within the src directory. It first complies the C files into object files, then the object files are linked together to create the shell executable. The make file also cleans the bin directory of any object files and the shell executable.
 
+**Disclaimer: the following commands can only be executed successfully in the home directory of the shell project**
+
 Command to run the make file to create the shell executable:
 
 `make`
