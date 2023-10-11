@@ -1,5 +1,4 @@
-# Razvan Gorea, 21306373 - Operating Systems Project 1
-# ca216/myshell
+# Razvan Gorea
 
 files = src/myshell.c src/utility.c src/shellcontainer.c
 objects = $(patsubst src/%.c,%.o,$(files))
@@ -16,14 +15,3 @@ clean: #cleans the bin folder
 	rm bin/myshell
 
 .PHONY: myshell
-
-
-
-
-#Studnet Name: Razvan Gorea
-#Student ID: 21306373
-
-#I declare that this material, which I now submit for assessment, 
-#is entirely my own work and has not been taken from the work of others save,
-#and to the extent that such work has been cited 
-#and acknowledged within the text of my work. Citations for the code is in the readme.md file.
