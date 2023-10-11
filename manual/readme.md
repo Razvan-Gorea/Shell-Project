@@ -175,8 +175,7 @@ Command to clean the bin directory:
 
 ## Author Information
 
-#### Student Name: Razvan Gorea
-#### Student ID: 21306373
+#### Razvan Gorea
 
 ---
 
