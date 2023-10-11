@@ -1,3 +1,1 @@
-# Shell Project
 
-## Introduction
