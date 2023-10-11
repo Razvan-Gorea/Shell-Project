@@ -177,11 +177,3 @@ Command to clean the bin directory:
 
 #### Razvan Gorea
 
----
-
-## Acknowledgement of the DCU Academic Integrity Policy
-
-I declare that this material, which I now submit for assessment, 
-is entirely my own work and has not been taken from the work of others save,
-and to the extent that such work has been cited 
-and acknowledged within the text of my work. Citations for the material used to create the code for this entire project is in this file under the "References" section.
