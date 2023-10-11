@@ -1,5 +1,3 @@
-# Razvan Gorea
-
 files = src/myshell.c src/utility.c src/shellcontainer.c
 objects = $(patsubst src/%.c,%.o,$(files))
 
