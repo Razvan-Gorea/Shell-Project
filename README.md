@@ -17,7 +17,7 @@ This shell is designed to run on a linux operating system. It's intented to emul
 7. To exit the shell run `quit` inside the shell
 8. (Optionally) If you want to clear the bin directory run `make clean` at the root of the cloned repository
 
-Have fun messing around and exploring what's possiblle with the custom shell. If you want additional information about the shell, refer to the manual repository. 
+Have fun messing around and exploring what's possiblle with the custom shell. If you want additional information about the shell, refer to the manual directory. 
    
 
 
